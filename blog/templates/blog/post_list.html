@@ -1,22 +1,33 @@
+{% load static %}
 <html>
 <head>
     <title>Django Girls blog</title>
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico" rel="stylesheet"> </head>
 <body>
-    <div>
-        <h1><a href="/">Django Girls Blog</a></h1>
-    </div>
-    
+    <div class="jumbotron text-center">
+      <h1 style="font-family: 'Lobster', cursive;font-size: 60px;">Django Girls Blog</h1>
+      <p style="font-family: 'Pacifico', cursive;">We have some amazing posts out there ;) </p> 
+  </div>
+
+  <div class="container">
     {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p> 
-        <!-- the |linebreaksbr is piping the posts' text through a filter to convert line-breaks into paragraphs. -->
-    </div>
-    {% endfor %}
+    <div class="row card">
+        <div class="col-sm-12 card-body">
+          <p class="small">published: {{ post.published_date }}</p>
+          <h3 class="card-title text-capitalize">{{ post.title }}</h3>
+          <p class="card-text lead">{{ post.text|linebreaksbr }}</p>
+      </div>
+  </div><br>
+  {% endfor %}
+</div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </div>
 </body>
 </html>
