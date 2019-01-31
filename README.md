@@ -1,2 +1,2 @@
 # Blog-Django
-a simple blog build using django
+A simple dynamic blog build using django
